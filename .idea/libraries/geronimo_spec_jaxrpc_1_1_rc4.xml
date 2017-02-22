@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="geronimo-spec-jaxrpc-1.1-rc4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tomcat-build-libs/jaxrpc-1.1-rc4/geronimo-spec-jaxrpc-1.1-rc4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TomcatSourceAnalysis.iml" filepath="$PROJECT_DIR$/TomcatSourceAnalysis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/output/build/webapps/examples/WEB-INF/WEB-INF.iml" filepath="$PROJECT_DIR$/output/build/webapps/examples/WEB-INF/WEB-INF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/examples/WEB-INF/WEB-INF1.iml" filepath="$PROJECT_DIR$/webapps/examples/WEB-INF/WEB-INF1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tomcat-build-libs/commons-dbcp-1.4-src/commons-dbcp-1.4-src.iml" filepath="$PROJECT_DIR$/tomcat-build-libs/commons-dbcp-1.4-src/commons-dbcp-1.4-src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tomcat-build-libs/commons-dbcp-1.4-src/src/commons-dbcp-1.4-src1.iml" filepath="$PROJECT_DIR$/tomcat-build-libs/commons-dbcp-1.4-src/src/commons-dbcp-1.4-src1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tomcat-build-libs/commons-pool-1.5.7-src/src/commons-pool-1.5.7-src.iml" filepath="$PROJECT_DIR$/tomcat-build-libs/commons-pool-1.5.7-src/src/commons-pool-1.5.7-src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/src/dbcp.iml" filepath="$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/src/dbcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/dbcp1.iml" filepath="$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/dbcp1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/output/build/webapps/examples/WEB-INF/jsp/jsp.iml" filepath="$PROJECT_DIR$/output/build/webapps/examples/WEB-INF/jsp/jsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/examples/WEB-INF/jsp/jsp1.iml" filepath="$PROJECT_DIR$/webapps/examples/WEB-INF/jsp/jsp1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/output/build/work/Catalina/localhost/localhost.iml" filepath="$PROJECT_DIR$/output/build/work/Catalina/localhost/localhost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/jdbc-pool/src/main/main.iml" filepath="$PROJECT_DIR$/modules/jdbc-pool/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/output/build/webapps/examples/jsp/plugin/plugin.iml" filepath="$PROJECT_DIR$/output/build/webapps/examples/jsp/plugin/plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/examples/jsp/plugin/plugin1.iml" filepath="$PROJECT_DIR$/webapps/examples/jsp/plugin/plugin1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/docs/appdev/sample/sample.iml" filepath="$PROJECT_DIR$/webapps/docs/appdev/sample/sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/output/build/webapps/docs/appdev/sample/sample1.iml" filepath="$PROJECT_DIR$/output/build/webapps/docs/appdev/sample/sample1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/jdbc-pool/src/test/test.iml" filepath="$PROJECT_DIR$/modules/jdbc-pool/src/test/test.iml" />
+    </modules>
+  </component>
+</project>
