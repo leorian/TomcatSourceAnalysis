@@ -563,6 +563,8 @@ public class Catalina {
                     log.debug(sm.getString("catalina.configFail", file), e);
                 }
             }
+
+            log.info("+++++++++++++++++++++++++++++++读取配置文件config/server.xml++++++++++++++++++++++++++++++++++++++++++++++");
             if (inputStream == null) {
                 try {
                     inputStream = getClass().getClassLoader()
