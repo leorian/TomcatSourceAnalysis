@@ -20,6 +20,8 @@
       <root url="jar://$PROJECT_DIR$/output/build/lib/tomcat-util.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/java" />
+    </SOURCES>
   </library>
 </component>

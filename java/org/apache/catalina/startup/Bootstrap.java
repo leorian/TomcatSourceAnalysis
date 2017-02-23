@@ -247,6 +247,15 @@ public final class Bootstrap {
                 catalinaDaemon.getClass().getMethod(methodName, paramTypes);
         if (log.isDebugEnabled())
             log.debug("Calling startup class " + method);
+        System.out.println("----------------------日志框架分析开始---------------------------------");
+        System.out.println(LogFactory.getFactory().getAttributeNames());
+        String[] names = LogFactory.getFactory().getAttributeNames();
+        if (names != null && names.length > 0) {
+            for (String name : names) {
+                System.out.println(name + " = " + LogFactory.getFactory().getAttribute(name));
+            }
+        }
+        System.out.println("----------------------日志框架分析结束---------------------------------");
         method.invoke(catalinaDaemon, param);
 
     }
@@ -386,6 +395,15 @@ public final class Bootstrap {
      * @param args Command line arguments to be processed
      */
     public static void main(String args[]) {
+        System.out.println("----------------------日志框架分析开始---------------------------------");
+        System.out.println(LogFactory.getFactory().getAttributeNames());
+        String[] names = LogFactory.getFactory().getAttributeNames();
+        if (names != null && names.length > 0) {
+            for (String name : names) {
+                System.out.println(name + " = " + LogFactory.getFactory().getAttribute(name));
+            }
+        }
+        System.out.println("----------------------日志框架分析结束---------------------------------");
         Properties properties = System.getProperties();
         if (properties != null) {
             Set<Object> keySet = properties.keySet();
