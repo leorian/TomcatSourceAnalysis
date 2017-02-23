@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="dbcp">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/tomcat-dbcp.jar!/" />
       <root url="jar://$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/tomcat-dbcp-src.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat-build-libs/tomcat7-deps/dbcp/tomcat-dbcp.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

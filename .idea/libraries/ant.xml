@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="tomcat70">
+  <library name="ant">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/tomcat70.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat-build-libs/ant.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
