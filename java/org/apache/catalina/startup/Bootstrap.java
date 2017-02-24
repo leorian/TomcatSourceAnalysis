@@ -557,4 +557,12 @@ public final class Bootstrap {
         }
         // All other instances of Throwable will be silently swallowed
     }
+
+    public static Bootstrap getDaemon() {
+        return daemon;
+    }
+
+    public Object getCatalinaDaemon() {
+        return catalinaDaemon;
+    }
 }
