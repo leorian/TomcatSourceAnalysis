@@ -163,6 +163,7 @@ public class StatusTransformer {
             method.invoke(null, paramValues);
             ok = true;
         } catch (Throwable t) {
+            t.printStackTrace();
             t = ExceptionUtils.unwrapInvocationTargetException(t);
             ExceptionUtils.handleThrowable(t);
         }
@@ -229,17 +230,17 @@ public class StatusTransformer {
             for (MemoryPoolMXBean memoryPoolMBean : memoryPoolMBeans.values()) {
                 MemoryUsage usage = memoryPoolMBean.getUsage();
                 writer.write("<tr><td>");
-                writer.print(memoryPoolMBean.getName());
+                writer.print(memoryPoolMBean.getName());/*Memory Pool*/
                 writer.write("</td><td>");
-                writer.print(memoryPoolMBean.getType());
+                writer.print(memoryPoolMBean.getType());/*Type*/
                 writer.write("</td><td>");
-                writer.print(formatSize(Long.valueOf(usage.getInit()), true));
+                writer.print(formatSize(Long.valueOf(usage.getInit()), true));/*Initial*/
                 writer.write("</td><td>");
-                writer.print(formatSize(Long.valueOf(usage.getCommitted()), true));
+                writer.print(formatSize(Long.valueOf(usage.getCommitted()), true));/*Total*/
                 writer.write("</td><td>");
-                writer.print(formatSize(Long.valueOf(usage.getMax()), true));
+                writer.print(formatSize(Long.valueOf(usage.getMax()), true));/*Maximum*/
                 writer.write("</td><td>");
-                writer.print(formatSize(Long.valueOf(usage.getUsed()), true));
+                writer.print(formatSize(Long.valueOf(usage.getUsed()), true));/*Used*/
                 if (usage.getMax() > 0) {
                     writer.write(" ("
                             + (usage.getUsed() * 100 / usage.getMax()) + "%)");

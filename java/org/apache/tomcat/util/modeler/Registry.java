@@ -550,6 +550,7 @@ public class Registry implements RegistryMBean, MBeanRegistration  {
                 if( log.isDebugEnabled() ) {
                     log.debug("Creating MBeanServer"+ (System.currentTimeMillis() - t1 ));
                 }
+                log.info("++++++++++++++++++++++++++++++++++++++++Creating MeanServer+++++++++++++++++++++++++++++++++++++++++++++++++++++");
             }
         }
         return (server);
