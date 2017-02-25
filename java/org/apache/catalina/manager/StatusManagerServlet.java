@@ -49,7 +49,7 @@ import org.apache.tomcat.util.res.StringManager;
  * @author Remy Maucherat
  */
 public class StatusManagerServlet
-    extends HttpServlet implements NotificationListener {
+        extends HttpServlet implements NotificationListener {
 
     private static final long serialVersionUID = 1L;
 
@@ -88,7 +88,7 @@ public class StatusManagerServlet
      * The string manager for this package.
      */
     protected static final StringManager sm =
-        StringManager.getManager(Constants.Package);
+            StringManager.getManager(Constants.Package);
 
 
     // --------------------------------------------------------- Public Methods
@@ -179,22 +179,21 @@ public class StatusManagerServlet
     /**
      * Process a GET request for the specified resource.
      *
-     * @param request The servlet request we are processing
+     * @param request  The servlet request we are processing
      * @param response The servlet response we are creating
-     *
-     * @exception IOException if an input/output error occurs
-     * @exception ServletException if a servlet-specified error occurs
+     * @throws IOException      if an input/output error occurs
+     * @throws ServletException if a servlet-specified error occurs
      */
     @Override
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
-        throws IOException, ServletException {
+            throws IOException, ServletException {
 
         // mode is flag for HTML or XML output
         int mode = 0;
         // if ?XML=true, set the mode to XML
-        if (request.getParameter("XML") != null 
-            && request.getParameter("XML").equals("true")) {
+        if (request.getParameter("XML") != null
+                && request.getParameter("XML").equals("true")) {
             mode = 1;
         }
         StatusTransformer.setContentType(response, mode);
@@ -202,14 +201,14 @@ public class StatusManagerServlet
         PrintWriter writer = response.getWriter();
 
         boolean completeStatus = false;
-        if ((request.getPathInfo() != null) 
-            && (request.getPathInfo().equals("/all"))) {
+        if ((request.getPathInfo() != null)
+                && (request.getPathInfo().equals("/all"))) {
             completeStatus = true;
         }
         // use StatusTransformer to output status
         Object[] args = new Object[1];
         args[0] = request.getContextPath();
-        StatusTransformer.writeHeader(writer,args,mode);
+        StatusTransformer.writeHeader(writer, args, mode);
 
         // Body Header Section
         args = new Object[2];
@@ -220,32 +219,37 @@ public class StatusManagerServlet
             args[1] = sm.getString("statusServlet.title");
         }
         // use StatusTransformer to output status
-        StatusTransformer.writeBody(writer,args,mode);
+        StatusTransformer.writeBody(writer, args, mode);
 
         // Manager Section
         args = new Object[9];
         args[0] = sm.getString("htmlManagerServlet.manager");
         args[1] = response.encodeURL(request.getContextPath() + "/html/list");
+
         args[2] = sm.getString("htmlManagerServlet.list");
         args[3] = response.encodeURL
-            (request.getContextPath() + "/" +
-             sm.getString("htmlManagerServlet.helpHtmlManagerFile"));
+                (request.getContextPath() + "/" +
+                        sm.getString("htmlManagerServlet.helpHtmlManagerFile"));
+
         args[4] = sm.getString("htmlManagerServlet.helpHtmlManager");
         args[5] = response.encodeURL
-            (request.getContextPath() + "/" +
-             sm.getString("htmlManagerServlet.helpManagerFile"));
+                (request.getContextPath() + "/" +
+                        sm.getString("htmlManagerServlet.helpManagerFile"));
+
         args[6] = sm.getString("htmlManagerServlet.helpManager");
         if (completeStatus) {
             args[7] = response.encodeURL
-                (request.getContextPath() + "/status");
+                    (request.getContextPath() + "/status");
             args[8] = sm.getString("statusServlet.title");
         } else {
             args[7] = response.encodeURL
-                (request.getContextPath() + "/status/all");
+                    (request.getContextPath() + "/status/all");
             args[8] = sm.getString("statusServlet.complete");
         }
+
         // use StatusTransformer to output status
-        StatusTransformer.writeManager(writer,args,mode);
+        StatusTransformer.writeManager(writer, args, mode);
+
 
         // Server Header Section
         args = new Object[9];
@@ -259,34 +263,36 @@ public class StatusManagerServlet
         args[7] = sm.getString("htmlManagerServlet.serverHostname");
         args[8] = sm.getString("htmlManagerServlet.serverIPAddress");
         // use StatusTransformer to output status
-        StatusTransformer.writePageHeading(writer,args,mode);
+        StatusTransformer.writePageHeading(writer, args, mode);
+
 
         // Server Row Section
         args = new Object[8];
-        args[0] = ServerInfo.getServerInfo();
-        args[1] = System.getProperty("java.runtime.version");
-        args[2] = System.getProperty("java.vm.vendor");
-        args[3] = System.getProperty("os.name");
-        args[4] = System.getProperty("os.version");
-        args[5] = System.getProperty("os.arch");
+        args[0] = ServerInfo.getServerInfo();//Apache Tomcat/@VERSION@
+        args[1] = System.getProperty("java.runtime.version");//1.7.0_40-b43
+        args[2] = System.getProperty("java.vm.vendor");//Oracle Corporation
+        args[3] = System.getProperty("os.name");//Windows 7
+        args[4] = System.getProperty("os.version");// 6.1
+        args[5] = System.getProperty("os.arch");//amd64
         try {
             InetAddress address = InetAddress.getLocalHost();
-            args[6] = address.getHostName();
-            args[7] = address.getHostAddress();
-         } catch (UnknownHostException e) {
+            args[6] = address.getHostName();//SKY-20161221FWG
+            args[7] = address.getHostAddress();//172.16.120.2
+        } catch (UnknownHostException e) {
             args[6] = "-";
             args[7] = "-";
         }
         // use StatusTransformer to output status
         StatusTransformer.writeServerInfo(writer, args, mode);
 
+
         try {
 
             // Display operating system statistics using APR if available
-            StatusTransformer.writeOSState(writer,mode);
+            StatusTransformer.writeOSState(writer, mode);
 
             // Display virtual machine statistics
-            StatusTransformer.writeVMState(writer,mode);
+            StatusTransformer.writeVMState(writer, mode);
 
             Enumeration<ObjectName> enumeration = threadPools.elements();
             while (enumeration.hasMoreElements()) {
@@ -294,17 +300,17 @@ public class StatusManagerServlet
                 String name = objectName.getKeyProperty("name");
                 // use StatusTransformer to output status
                 StatusTransformer.writeConnectorState
-                    (writer, objectName,
-                     name, mBeanServer, globalRequestProcessors,
-                     requestProcessors, mode);
+                        (writer, objectName,
+                                name, mBeanServer, globalRequestProcessors,
+                                requestProcessors, mode);
             }
 
-            if ((request.getPathInfo() != null) 
-                && (request.getPathInfo().equals("/all"))) {
+            if ((request.getPathInfo() != null)
+                    && (request.getPathInfo().equals("/all"))) {
                 // Note: Retrieving the full status is much slower
                 // use StatusTransformer to output status
                 StatusTransformer.writeDetailedState
-                    (writer, mBeanServer, mode);
+                        (writer, mBeanServer, mode);
             }
 
         } catch (Exception e) {
@@ -324,10 +330,10 @@ public class StatusManagerServlet
                                    java.lang.Object handback) {
 
         if (notification instanceof MBeanServerNotification) {
-            ObjectName objectName = 
-                ((MBeanServerNotification) notification).getMBeanName();
+            ObjectName objectName =
+                    ((MBeanServerNotification) notification).getMBeanName();
             if (notification.getType().equals
-                (MBeanServerNotification.REGISTRATION_NOTIFICATION)) {
+                    (MBeanServerNotification.REGISTRATION_NOTIFICATION)) {
                 String type = objectName.getKeyProperty("type");
                 if (type != null) {
                     if (type.equals("ProtocolHandler")) {
@@ -341,7 +347,7 @@ public class StatusManagerServlet
                     }
                 }
             } else if (notification.getType().equals
-                       (MBeanServerNotification.UNREGISTRATION_NOTIFICATION)) {
+                    (MBeanServerNotification.UNREGISTRATION_NOTIFICATION)) {
                 String type = objectName.getKeyProperty("type");
                 if (type != null) {
                     if (type.equals("ProtocolHandler")) {
@@ -356,7 +362,7 @@ public class StatusManagerServlet
                 }
                 String j2eeType = objectName.getKeyProperty("j2eeType");
                 if (j2eeType != null) {
-                    
+
                 }
             }
         }
