@@ -266,7 +266,7 @@ public final class Bootstrap {
      * getServer() for configtest
      */
     private Object getServer() throws Exception {
-
+        //反射
         String methodName = "getServer";
         Method method =
                 catalinaDaemon.getClass().getMethod(methodName);
@@ -296,7 +296,7 @@ public final class Bootstrap {
     public void start()
             throws Exception {
         if (catalinaDaemon == null) init();
-
+        //反射
         Method method = catalinaDaemon.getClass().getMethod("start", (Class[]) null);
         method.invoke(catalinaDaemon, (Object[]) null);
 
@@ -308,7 +308,7 @@ public final class Bootstrap {
      */
     public void stop()
             throws Exception {
-
+        //反射
         Method method = catalinaDaemon.getClass().getMethod("stop", (Class[]) null);
         method.invoke(catalinaDaemon, (Object[]) null);
 
@@ -320,7 +320,7 @@ public final class Bootstrap {
      */
     public void stopServer()
             throws Exception {
-
+        //反射
         Method method =
                 catalinaDaemon.getClass().getMethod("stopServer", (Class[]) null);
         method.invoke(catalinaDaemon, (Object[]) null);
@@ -334,6 +334,7 @@ public final class Bootstrap {
     public void stopServer(String[] arguments)
             throws Exception {
 
+        //反射
         Object param[];
         Class<?> paramTypes[];
         if (arguments == null || arguments.length == 0) {
@@ -358,6 +359,7 @@ public final class Bootstrap {
     public void setAwait(boolean await)
             throws Exception {
 
+        //反射
         Class<?> paramTypes[] = new Class[1];
         paramTypes[0] = Boolean.TYPE;
         Object paramValues[] = new Object[1];
@@ -370,6 +372,7 @@ public final class Bootstrap {
 
     public boolean getAwait()
             throws Exception {
+        //反射
         Class<?> paramTypes[] = new Class[0];
         Object paramValues[] = new Object[0];
         Method method =
