@@ -311,6 +311,7 @@ public class Catalina {
         digester.setUseContextClassLoader(true);
 
         // Configure the actions we will be using
+        //StandardServer对象注入
         digester.addObjectCreate("Server",
                 "org.apache.catalina.core.StandardServer",
                 "className");
@@ -319,6 +320,7 @@ public class Catalina {
                 "setServer",
                 "org.apache.catalina.Server");
 
+        //GlobalNamingResources对象注入Server
         digester.addObjectCreate("Server/GlobalNamingResources",
                 "org.apache.catalina.deploy.NamingResources");
         digester.addSetProperties("Server/GlobalNamingResources");
@@ -326,6 +328,7 @@ public class Catalina {
                 "setGlobalNamingResources",
                 "org.apache.catalina.deploy.NamingResources");
 
+        //LifecycleListener对象注入Server
         digester.addObjectCreate("Server/Listener",
                 null, // MUST be specified in the element
                 "className");
@@ -334,6 +337,7 @@ public class Catalina {
                 "addLifecycleListener",
                 "org.apache.catalina.LifecycleListener");
 
+        //StandardService对象注入Server
         digester.addObjectCreate("Server/Service",
                 "org.apache.catalina.core.StandardService",
                 "className");
@@ -342,6 +346,7 @@ public class Catalina {
                 "addService",
                 "org.apache.catalina.Service");
 
+        //LifecycleListener对象注入Service
         digester.addObjectCreate("Server/Service/Listener",
                 null, // MUST be specified in the element
                 "className");
@@ -350,7 +355,7 @@ public class Catalina {
                 "addLifecycleListener",
                 "org.apache.catalina.LifecycleListener");
 
-        //Executor
+        //Executor对象注入Service
         digester.addObjectCreate("Server/Service/Executor",
                 "org.apache.catalina.core.StandardThreadExecutor",
                 "className");
@@ -360,7 +365,7 @@ public class Catalina {
                 "addExecutor",
                 "org.apache.catalina.Executor");
 
-
+        //Connector对象注入Service
         digester.addRule("Server/Service/Connector",
                 new ConnectorCreateRule());
         digester.addRule("Server/Service/Connector",
@@ -369,7 +374,7 @@ public class Catalina {
                 "addConnector",
                 "org.apache.catalina.connector.Connector");
 
-
+        //LifecycleListener对象注入Connector
         digester.addObjectCreate("Server/Service/Connector/Listener",
                 null, // MUST be specified in the element
                 "className");
